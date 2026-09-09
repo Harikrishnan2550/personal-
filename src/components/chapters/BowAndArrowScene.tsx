@@ -109,24 +109,6 @@ export default function BowAndArrowScene({ onArrowHit }: BowAndArrowSceneProps) 
         screenShake ? 'scale-105 translate-y-1' : 'scale-100'
       }`}
     >
-      {/* Subtle Atmospheric Stardust Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(24)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-[#f7c5d1] opacity-20 animate-pulse"
-            style={{
-              width: `${(i % 3) + 2}px`,
-              height: `${(i % 3) + 2}px`,
-              top: `${(i * 19) % 100}%`,
-              left: `${(i * 31) % 100}%`,
-              animationDuration: `${2.5 + (i % 4)}s`,
-              animationDelay: `${(i % 5) * 0.5}s`,
-            }}
-          />
-        ))}
-      </div>
-
       {/* Top Section: Header Title */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

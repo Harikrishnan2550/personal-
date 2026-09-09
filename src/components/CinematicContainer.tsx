@@ -2,6 +2,7 @@
 
 import React from 'react';
 import SoundControl from './SoundControl';
+import FloatingBubbles from './FloatingBubbles';
 
 interface CinematicContainerProps {
   children: React.ReactNode;
@@ -24,6 +25,8 @@ export default function CinematicContainer({ children }: CinematicContainerProps
         id="cinema-viewport"
         className="relative w-full max-w-[480px] min-h-[100dvh] bg-[#050507] md:border-x md:border-[#f7c5d1]/10 md:shadow-[0_0_80px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col items-center justify-start"
       >
+        {/* Global floating glowing bubbles across whole screen */}
+        <FloatingBubbles />
         {children}
       </main>
     </div>

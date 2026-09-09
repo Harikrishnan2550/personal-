@@ -39,24 +39,6 @@ export default function FinalBirthdayScene({ onRestart }: FinalBirthdaySceneProp
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(247,197,209,0.14)_0%,rgba(158,27,50,0.08)_45%,transparent_70%)] blur-3xl pointer-events-none" />
 
-      {/* Floating Starlight Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-[#ffe6b3] opacity-30 animate-pulse"
-            style={{
-              width: `${(i % 3) + 2}px`,
-              height: `${(i % 3) + 2}px`,
-              top: `${(i * 17) % 100}%`,
-              left: `${(i * 29) % 100}%`,
-              animationDuration: `${3 + (i % 3)}s`,
-              animationDelay: `${(i % 4) * 0.7}s`,
-            }}
-          />
-        ))}
-      </div>
-
       {/* Chapter Tag */}
       <motion.div
         initial={{ opacity: 0, y: -15 }}
