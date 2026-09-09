@@ -55,12 +55,6 @@ export default function SoundControl() {
         </span>
       </button>
 
-      {/* Subtle helper note on first view */}
-      {!hasInteracted && (
-        <div className="absolute top-12 right-0 w-44 p-2 bg-[#0d0812]/90 backdrop-blur-md rounded-lg border border-[#f7c5d1]/15 text-[10px] text-neutral-400 leading-tight shadow-xl pointer-events-none animate-pulse">
-          ✨ Best experienced with audio enabled
-        </div>
-      )}
     </div>
   );
 }

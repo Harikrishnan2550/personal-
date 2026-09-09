@@ -5,6 +5,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import BowAndArrowScene from './chapters/BowAndArrowScene';
 import BalloonExplosionScene from './chapters/BalloonExplosionScene';
 import LoveTreeScene from './chapters/LoveTreeScene';
+import StarlightCatcherGame from './chapters/StarlightCatcherGame';
+import LoveMazeGame from './chapters/LoveMazeGame';
+import MagicScratchCardGame from './chapters/MagicScratchCardGame';
+import LovePointsDrawingQuest from './chapters/LovePointsDrawingQuest';
 import SkyLanternScene from './chapters/SkyLanternScene';
 import StarConstellationScene from './chapters/StarConstellationScene';
 import CakeAndCandleScene from './chapters/CakeAndCandleScene';
@@ -16,6 +20,10 @@ export type Chapter =
   | 'bow'
   | 'balloons'
   | 'tree'
+  | 'catchStars'
+  | 'loveMaze'
+  | 'scratchCard'
+  | 'lovePoints'
   | 'lantern'
   | 'constellation'
   | 'cake'
@@ -75,11 +83,67 @@ export default function StoryController() {
             transition={{ duration: 0.8 }}
             className="w-full h-full"
           >
-            <LoveTreeScene onContinue={() => goToChapter('lantern')} />
+            <LoveTreeScene onContinue={() => goToChapter('catchStars')} />
           </motion.div>
         )}
 
-        {/* 4. The Floating Sky Lanterns of Wishes */}
+        {/* 4. Mini-Game Quest 1: Starlight Wish Catcher */}
+        {currentChapter === 'catchStars' && (
+          <motion.div
+            key="catchStars"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-full"
+          >
+            <StarlightCatcherGame onComplete={() => goToChapter('loveMaze')} />
+          </motion.div>
+        )}
+
+        {/* 5. Mini-Game Quest 2: Stardust Love Path Labyrinth */}
+        {currentChapter === 'loveMaze' && (
+          <motion.div
+            key="loveMaze"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-full"
+          >
+            <LoveMazeGame onComplete={() => goToChapter('scratchCard')} />
+          </motion.div>
+        )}
+
+        {/* 6. Mini-Game Quest 3: Magic Golden Rose Dust Scratch-to-Reveal */}
+        {currentChapter === 'scratchCard' && (
+          <motion.div
+            key="scratchCard"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-full"
+          >
+            <MagicScratchCardGame onComplete={() => goToChapter('lovePoints')} />
+          </motion.div>
+        )}
+
+        {/* 7. Mini-Game Quest 4: Connect The 8 Love Points Drawing */}
+        {currentChapter === 'lovePoints' && (
+          <motion.div
+            key="lovePoints"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-full"
+          >
+            <LovePointsDrawingQuest onComplete={() => goToChapter('lantern')} />
+          </motion.div>
+        )}
+
+        {/* 8. The Floating Sky Lanterns of Wishes */}
         {currentChapter === 'lantern' && (
           <motion.div
             key="lantern"
@@ -93,7 +157,7 @@ export default function StoryController() {
           </motion.div>
         )}
 
-        {/* 5. Star Constellation & Finger Sparklers */}
+        {/* 9. Star Constellation & Finger Sparklers */}
         {currentChapter === 'constellation' && (
           <motion.div
             key="constellation"
@@ -107,7 +171,7 @@ export default function StoryController() {
           </motion.div>
         )}
 
-        {/* 6. Birthday Cake & Candle Extinguish */}
+        {/* 10. Birthday Cake & Candle Extinguish */}
         {currentChapter === 'cake' && (
           <motion.div
             key="cake"
@@ -121,7 +185,7 @@ export default function StoryController() {
           </motion.div>
         )}
 
-        {/* 7. Hanging Fairy Lights & Polaroid Memories */}
+        {/* 11. Hanging Fairy Lights & Polaroid Memories */}
         {currentChapter === 'memories' && (
           <motion.div
             key="memories"
@@ -135,7 +199,7 @@ export default function StoryController() {
           </motion.div>
         )}
 
-        {/* 8. Biometric Heartbeat Resonance Lock */}
+        {/* 12. Biometric Heartbeat Resonance Lock */}
         {currentChapter === 'heartbeat' && (
           <motion.div
             key="heartbeat"
@@ -149,7 +213,7 @@ export default function StoryController() {
           </motion.div>
         )}
 
-        {/* 9. Final Unfolded Letter & Confetti Celebration */}
+        {/* 13. Final Unfolded Letter & Confetti Celebration */}
         {currentChapter === 'final' && (
           <motion.div
             key="final"
